@@ -32,7 +32,7 @@ pytest:
 test-unit: pytest
 
 .PHONY: test
-test: pytest
+test: pytest pylint
 
 .PHONY: dist
 dist:
