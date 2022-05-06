@@ -63,8 +63,3 @@ def data_mask(source_dir, target_dir, key_words=['2019', 'ANC', "C", "T", 'S', "
                 cut_point[0][0]:cut_point[2][0]] = mosaic_result  # 然后,将截取的这部分ROI区域的图片保存在roiImg矩阵变量中
         # print(f"{i}*******************************************")
         cv2.imwrite(filename=os.path.join(target_dir, f"{i}.jpg"), img=np_images[i])
-
-
-if __name__ == '__main__':
-    # test
-    data_mask(source_dir="antigen-images", target_dir="saved")
