@@ -19,6 +19,14 @@ def mosaic(selected_image, nsize=9):
             dist[y:y + nsize, x:x + nsize] = 255
     return dist
 
+def resize_800(img):
+    height, width, _ = img.shape
+    if width > 800:
+        size = (800, int(800 * height / width))
+    if height > 800:
+        size = (int(800 * width / height), 800)
+    img2 = cv2.resize(img, size)
+    return img2
 
 # source_dir: 待脱敏图片文件夹
 # target_dir: 脱敏后图片保存文件夹
@@ -31,7 +39,7 @@ def data_mask(source_dir, target_dir, key_words=['2019', 'ANC', "C", "T", 'S', "
         test_img_path = [os.path.join(source_dir, file) for file in test_img_path]
     # print("test_img_path", test_img_path)
     # 读取测试文件夹test.txt中的照片路径
-    np_images = [cv2.imread(image_path, 1) for image_path in test_img_path]
+    np_images = [resize_800(cv2.imread(image_path, 1)) for image_path in test_img_path]
 
     results = ocr.recognize_text(
         images=np_images,  # 图片数据，ndarray.shape 为 [H, W, C]，BGR格式；
