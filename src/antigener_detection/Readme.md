@@ -43,7 +43,7 @@ Antigener Detector通过两种方法串行，来完成检测。从而提高阳�
 **<u>使用时一定要注意修改main.py文件里的相关路径。</u>**
 
 ```python
-from main import antigener_classification
+from antigener_detector import antigener_classification
 
 img = cv2.imread('test_images/positive.jpeg')
 results = antigener_classification(img)

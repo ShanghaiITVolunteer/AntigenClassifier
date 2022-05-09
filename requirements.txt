@@ -1,0 +1,4 @@
+opencv-python
+PyYAML
+PIL
+numpy

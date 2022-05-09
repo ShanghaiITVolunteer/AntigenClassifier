@@ -3,7 +3,7 @@ import cv2
 import numpy as np
 import importlib
 from PIL import Image
-from utils import logger
+from detutils import logger
 from detpreprocess import DetNormalizeImage, DetPadStride, DetPermute, DetResize
 
 class UnifiedResize(object):

@@ -1,14 +1,14 @@
 import cv2
 
 from detector import DetPredictor
-from utils.config import get_config
+from detutils.config import get_config
 
 
 """
 修改成绝对路径。
 """
-modelparams_path = "params"
-config_path = "params/infer_cfg.yml"
+modelparams_path = "pretrained_model/hansansui_antigen_detector"
+config_path = "pretrained_model/hansansui_antigen_detector/infer_cfg.yml"
 
 config = get_config(config_path,
                     show=False)
@@ -93,13 +93,13 @@ def antigener_classification(img, det_threshed=0.2, negative_threshed=0.65):
                     results_dict['Positive'].append([x1, y1, x2, y2, 1 - result['score']])
 
     #print(result)
-    cv2.imwrite('test_images/detect_output.png', img)
+    cv2.imwrite('tests/test_images/detect_output.png', img)
     cv2.namedWindow('img', 0)
     cv2.imshow("img", img)
     cv2.waitKey(0)
     return results_dict
 
 if __name__ == "__main__":
-    img = cv2.imread('test_images/positive.jpeg')
+    img = cv2.imread('tests/test_images/positive.jpeg')
     results = antigener_classification(img)
     print(results)
