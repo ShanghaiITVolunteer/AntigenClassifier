@@ -2,3 +2,5 @@ opencv-python
 PyYAML
 PIL
 numpy
+import faiss
+import pickle

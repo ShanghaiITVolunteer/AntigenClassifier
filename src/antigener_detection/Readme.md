@@ -45,7 +45,7 @@ Antigener Detector通过两种方法串行，来完成检测。从而提高阳�
 ```python
 from antigener_detector import antigener_classification
 
-img = cv2.imread('test_images/positive.jpeg')
+img = cv2.imread('xxx')
 results = antigener_classification(img)
 print(results)
 """
@@ -61,7 +61,7 @@ a, b, c, ...., n的格式如下：
 
 # 4、检测效果展示
 
-![detect_output](test_images/detect_output.png)
+![detect_output](./params/detect_output.png)
 
 # 5、继续改进思路
 
@@ -69,6 +69,30 @@ a, b, c, ...., n的格式如下：
 
     1、改进目标检测本身。（从模型角度以及数据集角度）
     2、进一步完善传统视觉算法方案。
+
+# 6、Update Codes更新日志
+2022.5.11算法更新：
+本次更新替换了原算法中的第二阶段。而是通过建立阴性、阳性样本的特征向量数据库。当目标检测完成之后，如果目标检测得到的目标置信度小于设置的negative_threshed和positive_threshed两个阈值，则使用训练好的分类模型对感兴趣区域进行特征提取，之后在已经构建的特征向量数据库中进行搜索，找到相似度最高的特征向量，即认为该样本标签与数据库中样本标签一直，从而提升算法的容错率。
+
+建立数据库的方法：
+```python
+python .\build_gallary.py -c .\params\build_index.yaml
+```
+使用方法：
+```python
+from antigener_detector import antigener_classification_update_1、Searcher
+
+img = cv2.imread('xxx')
+searcher, id_map = Searcher()
+results = antigener_classification_update_1(img, searcher, id_map)
+print(results)
+"""
+输出results的格式如下：
+{'Positive':[a, b, c, ...., n], 'Negative':[a, b, c, ...., n]}
+a, b, c, ...., n的格式如下：
+[x1, y1, x2, y2, confidence]
+左上角
+```
 
 
 By Hansansui 2022.05.09

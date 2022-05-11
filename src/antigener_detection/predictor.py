@@ -15,8 +15,8 @@ class Predictor(object):
 
     def create_paddle_predictor(self, inference_model_dir,
                                 use_gpu=True, ir_optim=True, gpu_mem=200, cpu_num_threads=4):
-        params_file = os.path.join(inference_model_dir, "model.pdiparams")
-        model_file = os.path.join(inference_model_dir, "model.pdmodel")
+        params_file = os.path.join(inference_model_dir, "inference.pdiparams")
+        model_file = os.path.join(inference_model_dir, "inference.pdmodel")
         config = Config(model_file, params_file)
 
         if use_gpu:
