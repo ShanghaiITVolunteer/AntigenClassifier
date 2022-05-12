@@ -5,5 +5,3 @@ paddlepaddle
 paddlehub
 Flask
 faiss
-pickle
-paddlehub
