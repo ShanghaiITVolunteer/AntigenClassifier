@@ -3,7 +3,7 @@ PyYAML
 numpy
 paddlepaddle
 paddlehub
-opencv-python
 Flask
 faiss
 pickle
+paddlehub
