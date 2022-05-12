@@ -41,3 +41,7 @@ dist:
 .PHONY: publish
 publish:
 	PATH=~/.local/bin:${PATH} twine upload dist/*
+
+.PHONY: run
+run:
+	python serving.py
