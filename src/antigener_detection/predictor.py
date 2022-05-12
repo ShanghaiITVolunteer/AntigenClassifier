@@ -2,10 +2,13 @@ import os
 from paddle.inference import Config
 from paddle.inference import create_predictor
 
+
 class Predictor(object):
     def __init__(self, inference_model_dir,
                  use_gpu=True, ir_optim=True, gpu_mem=200, cpu_num_threads=4):
-
+        path1 = os.path.dirname(__file__)
+        inference_model_dir = os.path.join(path1, inference_model_dir)
+        #print(inference_model_dir)
         self.paddle_predictor, self.config = self.create_paddle_predictor(inference_model_dir,
                                                                           use_gpu, ir_optim,
                                                                           gpu_mem, cpu_num_threads)

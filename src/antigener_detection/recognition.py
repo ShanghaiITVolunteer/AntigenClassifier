@@ -1,7 +1,7 @@
 import numpy as np
-from predictor import Predictor
-from preprocess import create_operators
-from postprocess import build_postprocess
+from .predictor import Predictor
+from .preprocess import create_operators
+from .postprocess import build_postprocess
 
 class RecPredictor(Predictor):
     def __init__(self, config):

@@ -3,8 +3,8 @@ import cv2
 import numpy as np
 import importlib
 from PIL import Image
-from utils import logger
-from detpreprocess import DetNormalizeImage, DetPadStride, DetPermute, DetResize
+from .utils import logger
+from .detpreprocess import DetNormalizeImage, DetPadStride, DetPermute, DetResize
 
 class UnifiedResize(object):
     def __init__(self, interpolation=None, backend="cv2"):

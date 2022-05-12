@@ -10,10 +10,10 @@ import numpy as np
 from tqdm import tqdm
 import pickle
 
-from recognition import RecPredictor
+from .recognition import RecPredictor
 
-from utils import logger
-from utils import config
+from .utils import logger
+from .utils import config
 
 def split_datafile(data_file, image_root, delimiter="\t"):
     '''

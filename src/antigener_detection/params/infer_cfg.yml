@@ -53,7 +53,7 @@ RecPreProcess:
 RecPostProcess: null
 
 Global:
-  rec_inference_model_dir: "./params/clas_model"
+  rec_inference_model_dir: "params/clas_model"
   rec_nms_thresold: 0.05
 
 IndexProcess:

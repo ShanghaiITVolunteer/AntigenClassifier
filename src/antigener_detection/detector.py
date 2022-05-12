@@ -1,9 +1,9 @@
 import time
 import numpy as np
-from predictor import Predictor
-from detpreprocess import det_preprocess
+from .predictor import Predictor
+from .detpreprocess import det_preprocess
 from functools import reduce
-from preprocess import create_operators
+from .preprocess import create_operators
 
 class DetPredictor(Predictor):
     def __init__(self, inference_model_dir, config):

@@ -4,16 +4,16 @@ import faiss
 import pickle
 import numpy as np
 
-from recognition import RecPredictor
-from detector import DetPredictor
-from utils.config import get_config
+from .recognition import RecPredictor
+from .detector import DetPredictor
+from .utils.config import get_config
 
 
 """
-修改成绝对路径。
+相对路径。
 """
-modelparams_path = "./params/detection_model"
-config_path = "./params/infer_cfg.yml"
+modelparams_path = "params\detection_model"
+config_path = "params\infer_cfg.yml"
 
 config = get_config(config_path,
                     show=False)
@@ -115,8 +115,9 @@ def antigener_classification(img, det_threshed=0.2, negative_threshed=0.65):
 
 def Searcher():
     assert 'IndexProcess' in config.keys(), "Index config not found ... "
-
+    path1 = os.path.dirname(__file__)
     index_dir = config["IndexProcess"]["index_dir"]
+    index_dir = os.path.join(path1, index_dir)
     assert os.path.exists(os.path.join(
         index_dir, "vector.index")), "vector.index not found ..."
     assert os.path.exists(os.path.join(

@@ -3,10 +3,11 @@ import copy
 import argparse
 import yaml
 
-from utils import logger
+from . import logger
 
 __all__ = ['get_config']
 
+path1 = os.path.dirname(__file__)
 
 class AttrDict(dict):
     def __getattr__(self, key):
@@ -146,6 +147,8 @@ def get_config(fname, overrides=None, show=True):
     """
     Read config from file
     """
+    path = path1.strip().split('utils')[0]
+    fname = os.path.join(path, fname)
     assert os.path.exists(fname), (
         'config file({}) is not exist'.format(fname))
     config = parse_config(fname)
