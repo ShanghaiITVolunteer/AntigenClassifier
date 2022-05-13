@@ -1,3 +1,7 @@
+opencv-python
+PyYAML
+numpy
 paddlepaddle
 paddlehub
-opencv-python
+Flask
+faiss
