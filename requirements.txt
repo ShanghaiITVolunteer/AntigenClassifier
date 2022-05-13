@@ -1,7 +1,8 @@
-opencv-python
+# opencv-python
+opencv-contrib-python-headless==4.2.0.32
 PyYAML
 numpy
 paddlepaddle
 paddlehub
 Flask
-faiss
+faiss-cpu
