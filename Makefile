@@ -45,3 +45,12 @@ publish:
 .PHONY: run
 run:
 	python serving.py
+
+.PHONY: build
+build:
+	docker build -t antigen-classifier:0.1 .
+
+.PHONY: run
+run:
+	docker stop antigen-classifier && docker rm antigen-classifier
+	docker run -it -d -v $(PWD)/:/antigenclassifier/ -p 8089:8089 --restart=always --name=antigen-classifier antigen-classifier:0.1

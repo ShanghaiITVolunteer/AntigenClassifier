@@ -12,8 +12,8 @@ from .utils.config import get_config
 """
 相对路径。
 """
-modelparams_path = "params\detection_model"
-config_path = "params\infer_cfg.yml"
+modelparams_path = os.path.join("params", "detection_model")
+config_path = os.path.join("params", "infer_cfg.yml")
 
 config = get_config(config_path,
                     show=False)
